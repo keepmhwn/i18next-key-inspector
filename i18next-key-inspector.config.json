@@ -1,0 +1,5 @@
+{
+  "basePath": "./static/lang",
+  "source": "ko-KR",
+  "locales": ["en-US", "es-MX"]
+}
