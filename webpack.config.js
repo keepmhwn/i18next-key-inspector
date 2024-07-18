@@ -1,7 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require("path");
 
 module.exports = {
+  target: "node",
   entry: "./src/index.ts",
   module: {
     rules: [
@@ -17,6 +17,7 @@ module.exports = {
   },
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve("dist"),
+    libraryTarget: "commonjs2",
   },
 };
