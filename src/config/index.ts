@@ -1,20 +1,13 @@
-const path = require("path");
-const { existsSync, readFileSync } = require("fs");
+import path from "path";
+import { existsSync, readFileSync } from "fs";
 
-type Config = {
-  basePath: string;
-  source: string;
-  locales: string[];
-};
+const CONFIG_FILE_NAME = "i18next-key-inspector.config.json";
 
 export function getConfig(): Config | undefined {
   const root = process.cwd();
-  const configFilePath = path.resolve(
-    root,
-    "i18next-key-inspector.config.json"
-  );
+  const configFilePath = path.resolve(root, CONFIG_FILE_NAME);
 
   return existsSync(configFilePath)
-    ? JSON.parse(readFileSync(configFilePath))
+    ? JSON.parse(String(readFileSync(configFilePath)))
     : undefined;
 }
