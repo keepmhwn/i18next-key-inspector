@@ -1,54 +1,44 @@
-const path = require("path");
+import path from "path";
 
-const { getConfig } = require("./config");
+import { getConfig } from "./config";
 
-const {
-  mapPaths,
-  localeFileList,
+import {
+  files,
+  mapBasePaths,
+  mapFullPaths,
   readMappedJson,
   mapJsonToObject,
   inspect,
-} = require("./core");
+} from "./core";
 
-async function main() {
+import { log, validateConfig, validateResult } from "./utils";
+
+(async function () {
   const config = await getConfig();
 
   if (!config) {
-    console.log("You need a config file");
+    log("ERROR", "You need a config file");
+    return;
+  }
+
+  if (validateConfig(config) === undefined) {
     return;
   }
 
   const { basePath, source, locales } = config;
-
-  if (!basePath) {
-    return;
-  }
-
-  if (!source) {
-    return;
-  }
-
-  if (!locales) {
-    return;
-  }
-
   const root = process.cwd();
   const filePath = path.resolve(root, `${basePath}/${source}`);
 
   const result = await inspect(
     mapJsonToObject(
       readMappedJson(
-        mapPaths({
-          basePath,
-          source,
-          locales,
-          files: localeFileList(filePath),
-        })
+        mapFullPaths(
+          mapBasePaths(basePath, source, [...locales]),
+          await files(filePath)
+        )
       )
     )
   );
 
-  console.log(result);
-}
-
-main();
+  validateResult(result);
+})();
