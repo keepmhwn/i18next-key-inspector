@@ -1,6 +1,6 @@
-const path = require("path");
+import path from "path";
 
-module.exports = {
+export default {
   target: "node",
   entry: "./src/index.ts",
   module: {
@@ -18,6 +18,13 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve("dist"),
-    libraryTarget: "commonjs2",
+    library: {
+      type: "module",
+    },
+    module: true,
+    chunkFormat: "module",
+  },
+  experiments: {
+    outputModule: true,
   },
 };
