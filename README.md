@@ -28,8 +28,12 @@ To compare the keys in translated JSON files using i18next-key-inspector, you mu
 
 ### Execution
 
-```shell
-inspect-locale-key
+```json
+// package.json
+...
+"scripts": {
+    "inspect": "inspect-locale-key"
+  },
 ```
 
 ## License
