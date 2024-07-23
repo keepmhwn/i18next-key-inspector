@@ -34,4 +34,4 @@ inspect-locale-key
 
 ## License
 
-MIT License
+[MIT License](https://github.com/kimmihi/i18next-key-inspector/blob/main/LICENSE)
