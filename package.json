@@ -1,7 +1,7 @@
 {
   "name": "i18next-key-inspector",
-  "version": "0.3.2",
-  "description": "This module validates the JSON formatted translation files generated for each locale.",
+  "version": "1.0.0",
+  "description": "i18next-key-inspector is a tool that reads JSON-format translation files written for multilingual support to inspect if each locale has the same keys.",
   "main": "./dist/main.js",
   "type": "module",
   "scripts": {
@@ -10,12 +10,17 @@
     "lint": "eslint ./src"
   },
   "bin": {
-    "locale-key-inspect": "./dist/main.js"
+    "inspect-locale-key": "./dist/main.js"
   },
   "files": [
     "dist"
   ],
-  "keywords": [],
+  "keywords": [
+    "i18next-key-inspector",
+    "i18next",
+    "translation",
+    "internationalization"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
