@@ -28,9 +28,9 @@ To compare the keys in translated JSON files using i18next-key-inspector, you mu
 
 ### Execution
 
+- `package.json`
+
 ```json
-// package.json
-...
 "scripts": {
     "inspect": "inspect-locale-key"
   },
