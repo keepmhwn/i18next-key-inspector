@@ -1,6 +1,6 @@
 {
   "name": "i18next-key-inspector",
-  "version": "0.1.0",
+  "version": "0.3.2",
   "description": "This module validates the JSON formatted translation files generated for each locale.",
   "main": "./dist/main.js",
   "type": "module",
@@ -9,12 +9,12 @@
     "build": "webpack --mode=production",
     "lint": "eslint ./src"
   },
+  "bin": {
+    "locale-key-inspect": "./dist/main.js"
+  },
   "files": [
     "dist"
   ],
-  "bin": {
-    "locale-key-inspect": "node ./dist/main.js"
-  },
   "keywords": [],
   "author": "",
   "license": "MIT",
