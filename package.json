@@ -2,27 +2,35 @@
   "name": "i18next-key-inspector",
   "version": "1.0.1",
   "description": "i18next-key-inspector is a tool that reads JSON-format translation files written for multilingual support to inspect if each locale has the same keys.",
-  "main": "./dist/main.js",
-  "type": "module",
-  "scripts": {
-    "start": "webpack --mode=development && node ./dist/main.js",
-    "build": "webpack --mode=production",
-    "lint": "eslint ./src"
+  "author": {
+    "name": "minhwan",
+    "email": "mhko0411@gmail.com"
   },
-  "bin": {
-    "inspect-locale-key": "./dist/main.js"
+  "bugs": "https://github.com/kimmihi/i18next-key-inspector/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kimmihi/i18next-key-inspector.git"
   },
-  "files": [
-    "dist"
-  ],
+  "license": "MIT",
   "keywords": [
     "i18next-key-inspector",
     "i18next",
     "translation",
     "internationalization"
   ],
-  "author": "",
-  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "webpack --mode=development && node ./dist/main.js",
+    "build": "webpack --mode=production",
+    "lint": "eslint ./src"
+  },
+  "main": "./dist/main.js",
+  "bin": {
+    "inspect-locale-key": "./dist/main.js"
+  },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/node": "^20.14.10",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
