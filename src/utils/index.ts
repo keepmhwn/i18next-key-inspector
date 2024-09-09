@@ -1,2 +1,1 @@
-export { log } from "./log";
-export { validateConfig, validateResult } from "./validator";
+export { log, logByValidateConfig, logByResult } from "./log";
