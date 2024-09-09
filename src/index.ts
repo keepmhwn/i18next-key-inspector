@@ -11,18 +11,21 @@ import {
   inspect,
 } from "./core";
 
-import { log, validateConfig, validateResult } from "./utils";
+import { log, logByValidateConfig, logByResult } from "./utils";
 
 (async function () {
   const config = await getConfig();
 
   if (!config) {
     log("ERROR", "You need a config file");
-    return;
+    throw new Error('Could not find "i18next-key-inspector.config.json" file.');
   }
 
-  if (validateConfig(config) === undefined) {
-    return;
+  const logByConfig = logByValidateConfig(config);
+
+  if (logByConfig.logType === "ERROR") {
+    log(logByConfig.logType, logByConfig.message ?? "");
+    throw new Error(logByConfig.message);
   }
 
   const { basePath, source, locales } = config;
@@ -40,5 +43,15 @@ import { log, validateConfig, validateResult } from "./utils";
     )
   );
 
-  validateResult(result);
+  const { logType, message } = logByResult(result);
+
+  if (logType === "SUCCESS") {
+    log(logType, message);
+    return;
+  }
+
+  if (logType === "ERROR") {
+    log(logType, message);
+    throw new Error(message);
+  }
 })();
