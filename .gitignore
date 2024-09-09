@@ -2,3 +2,4 @@ node_modules
 dist
 static
 .DS_Store
+i18next-key-inspector.config.json
